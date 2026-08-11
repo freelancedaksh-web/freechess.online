@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeChess - Play & Analyze</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 0-Bug Rule Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+</head>
+<body>
+
+    <nav class="win98-nav">
+        <strong>FreeChess AI</strong> |
+        <a href="index.html">Play Board</a> | 
+        <a href="about.html">About Us</a> | 
+        <a href="contact.html">Contact Us</a> | 
+        <a href="terms.html">Terms of Service</a> | 
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="copyright.html">Copyright</a> | 
+        <a href="https://github.com/freelancedaksh-web/freechess.online" target="_blank">GitHub</a>
+    </nav>
+
+    <div class="window-container">
+        <div class="title-bar">FreeChess AI - Engine v10.0 (Grandmaster Edition)</div>
+        <div class="window-content flex-layout">
+            
+            <!-- Chess Board -->
+            <div id="board-container"></div>
+            
+            <!-- Control Panel -->
+            <div id="sidebar">
+                
+                <fieldset>
+                    <legend>Game Settings</legend>
+                    <div class="setting-row">
+                        <label>Mode:</label>
+                        <select id="game-mode">
+                            <option value="P1vsAI">Human (White) vs AI</option>
+                            <option value="AIvsP1">AI (White) vs Human</option>
+                            <option value="P1vsP2">Local 2-Player (No AI)</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <label>AI Difficulty (1-20):</label>
+                        <input type="number" id="difficulty" value="15" min="1" max="20" title="20 is Grandmaster level">
+                    </div>
+                    <button onclick="newGame()">Start New Game</button>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Blitz Typing Console</legend>
+                    <div class="setting-row">
+                        <input type="text" id="typing-input" autocomplete="off" placeholder="Type move (e.g. e4, Nf3) + Enter">
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Live Engine Analysis</legend>
+                    <label><input type="checkbox" id="analysis-toggle" onchange="toggleAnalysis()"> Enable Stockfish Evaluation</label>
+                    <div id="analysis-info" class="digital-box">Eval: +0.00</div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Match Log</legend>
+                    <div id="move-history" class="digital-box history-box"></div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Match Actions</legend>
+                    <button onclick="offerDraw()">Offer Draw</button>
+                    <button onclick="resign()">Resign</button>
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
